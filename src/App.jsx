@@ -16,6 +16,7 @@ import Home from "./components/home/Home";
 import Products from "./components/products/Products";
 import Product from "./components/product/Product";
 import { FaCartShopping } from "react-icons/fa6";
+import NotFound from "./components/notfound/NotFound";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -164,6 +165,7 @@ const Section = styled.div`
             element={<Products cart={cart} setCart={setCart} setAdd={setAdd} />}
           />
           <Route path="/products/:productId" element={<Product />} />
+          <Route path="/*" element={<NotFound />}/>
         </Routes>
       </Router>
       <FooterContainer>
