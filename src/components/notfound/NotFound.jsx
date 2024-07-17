@@ -1,12 +1,28 @@
 import React from "react";
 import styles from "./NotFound.module.scss";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const NotFound = () => {
     const navigate = useNavigate()
 
     const handleOfNotFound = () => {
         navigate("/products")
+         const Toast = Swal.mixin({
+           toast: true,
+           position: "top-end",
+           showConfirmButton: false,
+           timer: 2000,
+           timerProgressBar: true,
+           didOpen: (toast) => {
+             toast.onmouseenter = Swal.stopTimer;
+             toast.onmouseleave = Swal.resumeTimer;
+           },
+         });
+         Toast.fire({
+           icon: "success",
+           title: "We are in products page",
+         });
     }
   return (
     <div className={styles.container}>
