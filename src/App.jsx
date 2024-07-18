@@ -18,6 +18,7 @@ import Products from "./components/products/Products";
 import Product from "./components/product/Product";
 import { FaCartShopping } from "react-icons/fa6";
 import NotFound from "./components/notfound/NotFound";
+import SingleProduct from "./components/singleproducts/singleProduct";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -129,7 +130,7 @@ const Section = styled.div`
                       className={({ isActive }) =>
                         isActive ? "activeLink" : ""
                       }
-                      to="/Home"
+                      to="/SingleProduct"
                     ></NavLink>
                   </li>
                   <li>
@@ -153,7 +154,7 @@ const Section = styled.div`
                     </NavLink>
                   </li>
                 </ul>
-                <NavLink to="/Home">
+                <NavLink to="/SingleProduct">
                   <div className="cart-icon">
                     <FaCartShopping />
                     {add > 0 && <span className="cart-count">{add}</span>}
@@ -164,7 +165,10 @@ const Section = styled.div`
           </div>
         </header>
         <Routes>
-          <Route path="/Home" element={<Home cart={cart} />} />
+          <Route
+            path="/SingleProduct"
+            element={<SingleProduct cart={cart} />}
+          />
           <Route
             path="/"
             element={<Products cart={cart} setCart={setCart} setAdd={setAdd} />}

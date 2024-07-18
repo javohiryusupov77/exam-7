@@ -149,7 +149,7 @@ const SingleProduct = ({ cart }) => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   const handleBackClick = () => {
-    navigate("/products");
+    navigate("/");
     const Toast = Swal.mixin({
       toast: true,
       position: "top-end",
