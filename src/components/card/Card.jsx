@@ -3,11 +3,19 @@ import Button from "../button/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import styles from "./Card.module.scss";
+import Swal from "sweetalert2";
 
 const Card = ({ product, setCart, setAdd }) => {
   const [cartCount, setCartCount] = useState(0);
 
   const addToCart = () => {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "one more product added",
+      showConfirmButton: false,
+      timer: 1000,
+    });
     setCartCount(cartCount + 1);
     setCart((prevCart) => [...prevCart, product]);
     setAdd((prevAdd) => prevAdd + 1);
