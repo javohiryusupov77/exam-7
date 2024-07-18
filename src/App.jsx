@@ -55,7 +55,6 @@ const FooterContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-
   @media (max-width: 500px) {
     flex-direction: column;
   }
@@ -165,11 +164,19 @@ const Section = styled.div`
             element={<Products cart={cart} setCart={setCart} setAdd={setAdd} />}
           />
           <Route path="/products/:productId" element={<Product />} />
-          <Route path="/*" element={<NotFound />}/>
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </Router>
       <FooterContainer>
         <FooterContent>
+          <Section>
+            <h3>Services</h3>
+            <p>Gift card</p>
+            <p>Mobile app</p>
+            <p>Shipping & Delivery</p>
+            <p>Order Pickup</p>
+            <p>Account Signup</p>
+          </Section>
           <Section>
             <h3>Services</h3>
             <p>Gift card</p>

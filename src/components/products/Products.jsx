@@ -17,7 +17,6 @@ const Products = ({ cart, setCart, setAdd }) => {
 
   const [colors, setColors] = useState([]);
   const [selectedColor, setSelectedColor] = useState("");
-  const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
     async function fetchBrands() {
@@ -66,87 +65,105 @@ const Products = ({ cart, setCart, setAdd }) => {
     }
 
     fetchProducts();
-  }, [selectedBrand, selectedColor]);
+  }, [selectedBrand, selectedColor, dispatch]);
 
-  const handleFilterClick = () => {
-    setShowFilters(!showFilters);
-  };
+  const [sortOrder, setSortOrder] = useState("asc");
 
-  const handleSortClick = (sortOrder) => {
-    dispatch(sortProductsByPrice(sortOrder));
+  const handleSortClick = () => {
+    const newSortOrder = sortOrder === "asc" ? "desc" : "asc";
+    setSortOrder(newSortOrder);
+    dispatch(sortProductsByPrice(newSortOrder));
   };
 
   return (
-    <div className={styles.container}>
-      <aside>
-        <button
-          className={styles.sortButton}
-          onClick={() => handleSortClick("asc")}
+    <>
+      <div className="basic-1">
+        <div
+          className={`${styles.flex} ${styles["justify-between"]} ${styles["px-16"]} ${styles["bg-filteredBack"]} ${styles["text-filtered"]} ${styles["py-5"]} ${styles["max-sm:px-5"]} ${styles["max-sm:py-2"]} ${styles["text-2xl"]} ${styles["mt-10"]} ${styles["max-sm:text-lg"]} ${styles["items-center"]}`}
         >
-          Sort by Price Raise
-        </button>
-        <button
-          className={styles.sortButton}
-          onClick={() => handleSortClick("desc")}
-        >
-          Sort by Price Fall
-        </button>
-        <div>
-          <h3>BRAND</h3>
-          <ul>
-            {brands.map((brand, index) => (
-              <li key={index}>
-                <input
-                  type="radio"
-                  value={brand}
-                  name="brand"
-                  id={brand}
-                  checked={brand === selectedBrand}
-                  onChange={(e) => setSelectedBrand(e.target.value)}
-                />
-                <label htmlFor={brand}>{brand}</label>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h3>COLORS</h3>
-          <ul className={styles.colorsContainer}>
-            {colors.map((color, index) => (
-              <li key={index}>
-                <div
-                  style={{
-                    background: color,
-                    outline: selectedColor === color ? "3px solid red" : "",
-                  }}
-                  className={styles.color}
-                  onClick={() => setSelectedColor(color)}
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </aside>
-      <main>
-        {loading ? (
-          <p className={styles.spinner}></p>
-        ) : products.length ? (
-          <div className={styles.grid}>
-            {products.map((product) => (
-              <Card
-                key={product.id}
-                product={product}
-                cart={cart}
-                setCart={setCart}
-                setAdd={setAdd}
-              />
-            ))}
+          <p style={{ color: "#0BA42D" }}>Filter by:</p>
+          <div className={`${styles.flex} ${styles["items-center"]}`}>
+            <button
+              style={{
+                backgroundColor: "#D5F8CF",
+                color: "#0BA42D",
+                border: "none",
+              }}
+              className={`${styles.flex} ${styles["items-center"]} ${styles["gap-1"]}`}
+              onClick={handleSortClick}
+            >
+              <span
+                style={{ color: "#0BA42D" }}
+                className="material-symbols-outlined"
+              >
+                {sortOrder === "asc"
+                  ? "keyboard_arrow_down"
+                  : "keyboard_arrow_up"}
+              </span>
+              Sort By Price
+            </button>
           </div>
-        ) : (
-          <p>No products</p>
-        )}
-      </main>
-    </div>
+        </div>
+      </div>
+      <div className={styles.container}>
+        <aside>
+          <div>
+            <h3>BRAND</h3>
+            <ul>
+              {brands.map((brand, index) => (
+                <li key={index}>
+                  <input
+                    type="radio"
+                    value={brand}
+                    name="brand"
+                    id={brand}
+                    checked={brand === selectedBrand}
+                    onChange={(e) => setSelectedBrand(e.target.value)}
+                  />
+                  <label htmlFor={brand}>{brand}</label>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3>COLORS</h3>
+            <ul className={styles.colorsContainer}>
+              {colors.map((color, index) => (
+                <li key={index}>
+                  <div
+                    style={{
+                      background: color,
+                      outline: selectedColor === color ? "3px solid red" : "",
+                    }}
+                    className={styles.color}
+                    onClick={() => setSelectedColor(color)}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+        <main>
+          {loading ? (
+            <p className={styles.spinner}></p>
+          ) : products.length ? (
+            <div className={styles.grid}>
+              {products.map((product) => (
+                <Card
+                  key={product.id}
+                  product={product}
+                  cart={cart}
+                  setCart={setCart}
+                  setAdd={setAdd}
+                />
+              ))}
+            </div>
+          ) : (
+            <p>No products</p>
+          )}
+        </main>
+      </div>
+    </>
   );
 };
 

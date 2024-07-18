@@ -15,12 +15,13 @@
     }
 
     aside {
-        background-color: rgb(238, 238, 238);
         animation: fadeOut 1s forwards;
     }
 
     ul {
         margin-bottom: 4rem;
+        border-block:dashed;
+        padding-block: 1rem;
 
         li {
             margin-bottom: 0.5em;
@@ -158,4 +159,72 @@
 
 .sortButton:hover {
     color: #666;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.px-16 {
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.bg-filteredBack {
+        background: #D5F8CF;
+        max-width: 1278px;
+        margin: auto;
+}
+
+.text-filtered {
+    color: var(--filtered);
+}
+
+.py-5 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+
+.max-sm\:px-5 {
+    @media (max-width: 640px) {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+}
+
+.max-sm\:py-2 {
+    @media (max-width: 640px) {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+}
+
+.mt-10 {
+    margin-block: 2.5rem;
+}
+
+.max-sm\:text-lg {
+    @media (max-width: 640px) {
+        font-size: 1.125rem;
+    }
+}
+
+.items-center {
+    align-items: center;
+}
+
+.gap-1 {
+    gap: 0.25rem;
+}
+
+.duration-200 {
+    transition-duration: 200ms;
 }
