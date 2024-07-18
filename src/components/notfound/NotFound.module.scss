@@ -37,7 +37,7 @@
   &:hover {
     background-color: #007bff;
     color: #fff;
-    animation: shake 0.5s;
+    animation: shake 0.4s;
     box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
   }
 }
@@ -58,7 +58,7 @@
 
 @keyframes scale-up {
   0% {
-    transform: scale(0.5);
+    transform: scale(0.1);
   }
 
   100% {

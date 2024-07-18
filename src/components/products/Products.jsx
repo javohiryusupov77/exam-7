@@ -142,6 +142,30 @@ const Products = ({ cart, setCart, setAdd }) => {
               ))}
             </ul>
           </div>
+          <button
+            style={{
+              border: "2px solid green",
+              padding: "0.5rem 1rem",
+              borderRadius: "0.5rem",
+              marginTop: "1.25rem",
+              marginBottom: "1.25rem",
+              transition: "background-color 0.3s, color 0.3s",
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = "green";
+              e.target.style.color = "white";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = "";
+              e.target.style.color = "";
+            }}
+            onClick={() => {
+              setSelectedBrand("");
+              setSelectedColor("");
+            }}
+          >
+            Clear Filter
+          </button>
         </aside>
         <main>
           {loading ? (
