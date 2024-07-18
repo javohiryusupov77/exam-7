@@ -26,7 +26,7 @@ const Card = ({ product, setCart, setAdd }) => {
     <div>
       <img src={product.image_url} alt={product.product_name} />
       <h4>
-        <Link style={{color:"black"}} to={`/products/${product.id}`}>{product.name}</Link>
+        <Link style={{color:"black",textDecoration:"none"}} to={`/products/${product.id}`}>{product.name}</Link>
       </h4>
       <p>{product.description}</p>
 
