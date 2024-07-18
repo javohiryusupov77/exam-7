@@ -7,7 +7,7 @@ const NotFound = () => {
     const navigate = useNavigate()
 
     const handleOfNotFound = () => {
-        navigate("/products")
+        navigate("/")
          const Toast = Swal.mixin({
            toast: true,
            position: "top-end",

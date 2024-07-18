@@ -143,13 +143,13 @@ const CountButton = styled(Button)`
   }
 `;
 
-const Home = ({ cart }) => {
+const SingleProduct = ({ cart }) => {
   const navigate = useNavigate();
   const [counts, setCounts] = useState(cart.map(() => 0));
   const [totalPrice, setTotalPrice] = useState(0);
 
   const handleBackClick = () => {
-    navigate("/");
+    navigate("/products");
     const Toast = Swal.mixin({
       toast: true,
       position: "top-end",
@@ -219,4 +219,4 @@ const Home = ({ cart }) => {
   );
 };
 
-export default Home;
+export default SingleProduct;

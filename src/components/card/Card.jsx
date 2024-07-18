@@ -14,7 +14,7 @@ const Card = ({ product, setCart, setAdd }) => {
       icon: "success",
       title: "one more product added",
       showConfirmButton: false,
-      timer: 1500,
+      timer: 1000,
     });
     setCartCount(cartCount + 1);
     setCart((prevCart) => [...prevCart, product]);

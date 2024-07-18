@@ -21,7 +21,7 @@ const Product = () => {
     fetchProductById();
   }, [productId]);
   const handleBack = () => {
-    navigate(-1);
+    navigate("/");
     const Toast = Swal.mixin({
       toast: true,
       position: "top-end",

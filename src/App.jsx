@@ -6,6 +6,7 @@ import ImageOfUnited from "./assets/United.svg";
 import vector from "./assets/Vector.svg";
 import GameGeek from "./assets/GameGeek.svg";
 import styled from "styled-components";
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -39,13 +40,13 @@ function App() {
   }, [add, baseURL]);
 
 const FooterContainer = styled.footer`
-  background-color: #000;
+  background: #0d2612;
   color: #fff;
   padding: 20px 0;
   flex-direction: column;
   align-items: center;
-  max-width:1278px;
-  margin:auto
+  max-width: 1278px;
+  margin: auto;
 `;
 
 const FooterContent = styled.div`
@@ -64,12 +65,12 @@ const Section = styled.div`
   flex: 1;
   margin: 20px;
   h3 {
-    font-size: 1.5rem;
+    font-size: 24px;
     margin-bottom: 10px;
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 18px;
     margin: 5px 0;
     color: #ccc;
   }
@@ -128,9 +129,17 @@ const Section = styled.div`
                       className={({ isActive }) =>
                         isActive ? "activeLink" : ""
                       }
+                      to="/Home"
+                    ></NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "activeLink" : ""
+                      }
                       to="/"
                     >
-                      Cart
+                      Products
                     </NavLink>
                   </li>
                   <li>
@@ -138,16 +147,13 @@ const Section = styled.div`
                       className={({ isActive }) =>
                         isActive ? "activeLink" : ""
                       }
-                      to="/products"
+                      to="/Help"
                     >
-                      Products
+                      Help
                     </NavLink>
                   </li>
-                  <li>
-                    <NavLink>Help</NavLink>
-                  </li>
                 </ul>
-                <NavLink to="/">
+                <NavLink to="/Home">
                   <div className="cart-icon">
                     <FaCartShopping />
                     {add > 0 && <span className="cart-count">{add}</span>}
@@ -158,9 +164,9 @@ const Section = styled.div`
           </div>
         </header>
         <Routes>
-          <Route path="/" element={<Home cart={cart} />} />
+          <Route path="/Home" element={<Home cart={cart} />} />
           <Route
-            path="/products"
+            path="/"
             element={<Products cart={cart} setCart={setCart} setAdd={setAdd} />}
           />
           <Route path="/products/:productId" element={<Product />} />
@@ -170,15 +176,7 @@ const Section = styled.div`
       <FooterContainer>
         <FooterContent>
           <Section>
-            <h3>Services</h3>
-            <p>Gift card</p>
-            <p>Mobile app</p>
-            <p>Shipping & Delivery</p>
-            <p>Order Pickup</p>
-            <p>Account Signup</p>
-          </Section>
-          <Section>
-            <h3>Services</h3>
+            <h3>Home</h3>
             <p>Gift card</p>
             <p>Mobile app</p>
             <p>Shipping & Delivery</p>
