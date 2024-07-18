@@ -113,7 +113,7 @@ const Products = ({ cart, setCart, setAdd }) => {
               {brands.map((brand, index) => (
                 <li key={index}>
                   <input
-                    type="radio"
+                    type="checkbox"
                     value={brand}
                     name="brand"
                     id={brand}
