@@ -13,7 +13,6 @@ import {
   Route,
   NavLink,
 } from "react-router-dom";
-import Home from "./components/home/Home";
 import Products from "./components/products/Products";
 import Product from "./components/product/Product";
 import { FaCartShopping } from "react-icons/fa6";
@@ -154,14 +153,14 @@ const Section = styled.div`
                     </NavLink>
                   </li>
                 </ul>
+              </nav>
+            </div>
                 <NavLink to="/SingleProduct">
                   <div className="cart-icon">
                     <FaCartShopping />
                     {add > 0 && <span className="cart-count">{add}</span>}
                   </div>
                 </NavLink>
-              </nav>
-            </div>
           </div>
         </header>
         <Routes>
