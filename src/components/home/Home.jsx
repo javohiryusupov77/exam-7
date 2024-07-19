@@ -4,12 +4,28 @@ import computerImg from "../home/computerImg.svg";
 import HeadPhones from "../home/headphonesIm.svg";
 import justImage from "../home/justImage.svg";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Home = () => {
   const navigate = useNavigate()
   
   const handleProduct = () =>{
     navigate("/products")
+     const Toast = Swal.mixin({
+       toast: true,
+       position: "top-end",
+       showConfirmButton: false,
+       timer: 2000,
+       timerProgressBar: true,
+       didOpen: (toast) => {
+         toast.onmouseenter = Swal.stopTimer;
+         toast.onmouseleave = Swal.resumeTimer;
+       },
+     });
+     Toast.fire({
+       icon: "success",
+       title: "We are in products page",
+     });
   }
   return (
     <>
