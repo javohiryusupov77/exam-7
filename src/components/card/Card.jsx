@@ -23,7 +23,7 @@ const Card = ({ product, setCart, setAdd }) => {
   };
 
   return (
-    <div className={styles.card}>
+    <div style={{border:"none"}} className={styles.card}>
       <img
         src={product.image_url}
         alt={product.product_name}
