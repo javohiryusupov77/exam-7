@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const NotFound = () => {
     const navigate = useNavigate()
     const handleOfNotFound = () => {
-        navigate("/")
+        navigate("/products")
          const Toast = Swal.mixin({
            toast: true,
            position: "top-end",

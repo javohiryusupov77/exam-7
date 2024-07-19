@@ -22,7 +22,7 @@ const Product = () => {
     fetchProductById();
   }, [productId]);
   const handleBack = () => {
-    navigate("/");
+    navigate("/products");
     const Toast = Swal.mixin({
       toast: true,
       position: "top-end",
@@ -55,7 +55,9 @@ const Product = () => {
               <h2>{product.name}</h2>
               <img src={product.image_url} alt={product.name} />
               <p>{product.description}</p>
-              <p className={styles.price}>Price: ${product.price}</p>
+              <p style={{ color: "rgb(32, 185, 32)" }} className={styles.price}>
+                Price: ${product.price}
+              </p>
               <p className={styles.category}> Brand{product.brand_name}</p>
               <div className={styles.productDetails}>
                 <strong>{product.description}</strong>
@@ -82,7 +84,8 @@ const Product = () => {
               <FaCartShopping /> Add to Cart
             </button>
             <div className={styles.symbols}>
-              <span style={{color:"black"}}
+              <span
+                style={{ color: "black" }}
                 class="material-symbols-outlined"
               >
                 favorite

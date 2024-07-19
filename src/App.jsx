@@ -13,6 +13,7 @@ import {
   Route,
   NavLink,
 } from "react-router-dom";
+import Home from "./components/home/Home"
 import Products from "./components/products/Products";
 import Product from "./components/product/Product";
 import { FaCartShopping } from "react-icons/fa6";
@@ -45,7 +46,7 @@ const FooterContainer = styled.footer`
   padding: 20px 0;
   flex-direction: column;
   align-items: center;
-  max-width: 1278px;
+  max-width: 1280px;
   margin: auto;
 `;
 
@@ -137,7 +138,7 @@ const Section = styled.div`
                       className={({ isActive }) =>
                         isActive ? "activeLink" : ""
                       }
-                      to="/"
+                      to="/products"
                     >
                       Products
                     </NavLink>
@@ -169,9 +170,10 @@ const Section = styled.div`
             element={<SingleProduct cart={cart} />}
           />
           <Route
-            path="/"
+            path="/Products"
             element={<Products cart={cart} setCart={setCart} setAdd={setAdd} />}
           />
+          <Route path="/" element={<Home />}/>
           <Route path="/products/:productId" element={<Product />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
