@@ -29,7 +29,7 @@ const Card = ({ product, setCart, setAdd }) => {
         alt={product.product_name}
         className={styles.image}
       />
-      <h4>
+      <h4 style={{ marginBottom: "5px" }}>
         <Link
           style={{ color: "black", textDecoration: "none" }}
           to={`/products/${product.id}`}
@@ -37,9 +37,11 @@ const Card = ({ product, setCart, setAdd }) => {
           {product.name}
         </Link>
       </h4>
-      <p className={styles.description}>{product.description}</p>
+      <p style={{ marginBottom: "5px" }} className={styles.description}>
+        {product.description}
+      </p>
 
-      <div className={styles.colors}>
+      <div style={{ marginBottom: "5px" }} className={styles.colors}>
         {product.color_options.map((color, index) => (
           <div
             key={index}
@@ -48,10 +50,10 @@ const Card = ({ product, setCart, setAdd }) => {
           />
         ))}
       </div>
-      <div className={styles.price} style={{ color: "green" }}>
+      <div  className={styles.price} style={{ color: "green",marginBottom:"5px" }}>
         ${product.price}
       </div>
-      <div className={styles.basic}>
+      <div  className={styles.basic}>
         <Button onClick={addToCart}>
           <FaCartShopping />
           {cartCount > 0 && <span className={styles.just}>{cartCount}</span>}
