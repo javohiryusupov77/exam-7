@@ -176,14 +176,16 @@ const SingleProduct = ({ cart }) => {
 
   const decrementCount = (index) => {
     const newCounts = [...counts];
-    if (newCounts[index] > 0) newCounts[index] -= 1;
-    setCounts(newCounts);
-    updateTotalPrice(index, -1);
+    if (newCounts[index] > 0) {
+      newCounts[index] -= 1;
+      setCounts(newCounts);
+      updateTotalPrice(index, -1);
+    }
   };
 
   const updateTotalPrice = (index, delta) => {
     const price = cart[index].price;
-    setTotalPrice(totalPrice + price * delta);
+    setTotalPrice((prevTotal) => Math.max(0, prevTotal + price * delta));
   };
 
   return (
