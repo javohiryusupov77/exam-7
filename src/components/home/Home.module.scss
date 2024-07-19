@@ -1,117 +1,146 @@
 .container {
-    max-width: 1278px;
-    width: 100%;
-    height: 55vw;
-    background-image: url("./BackgroundImage.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    margin: auto;
+  max-width: 1278px;
+  width: 100%;
+  height: 55vw;
+  background-image: url("./BackgroundImage.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin: auto;
+  animation: fadeInUp 1s;
 }
 
 .h1style {
-    position: absolute;
-    top: 20%;
-    left: 10%;
-    width: 45%;
-    height: 150px;
-    margin: auto;
-    font-size: 60px;
-    background: linear-gradient(to left, #14FF00, #EBE2F4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 45%;
+  height: 150px;
+  margin: auto;
+  font-size: 60px;
+  background: linear-gradient(to left, #14ff00, #ebe2f4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 h2 {
-    margin-block: 1rem;
-    text-align: center;
-    color: rgb(32, 185, 32);
+  margin-block: 1rem;
+  text-align: center;
+  color: rgb(32, 185, 32);
 }
 
 .ImageContainer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem;
+  animation: fadeInUp 1s;
 }
 
 h5 {
-    width: 250px;
-    height: 100px;
-    margin-block: 1rem;
+  width: 250px;
+  height: 100px;
+  margin-block: 1rem;
 }
 
 h3 {
-    margin-block: 1rem;
+  margin-block: 1rem;
 }
 
 .shop {
-    width: 200px;
-    height: 50px;
-    color: white;
-    background-color: #21D511;
-    position: absolute;
-    border: none;
-    top: 40%;
-    left: 10%;
-    border-radius: 10px;
-    margin-block: 2rem;
+  width: 200px;
+  height: 50px;
+  color: white;
+  background-color: #21d511;
+  position: absolute;
+  border: none;
+  top: 40%;
+  left: 10%;
+  border-radius: 10px;
+  margin-block: 2rem;
+  animation: pulse 2s infinite;
+  transition: 0.3s;
 }
 
 .shop:hover {
-    background-color: greenyellow;
+  background-color: rgb(109, 168, 22);
 }
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
-    .h1style {
-        font-size: 45px;
-        width: 50%;
-    }
+  .h1style {
+    font-size: 45px;
+    width: 50%;
+  }
 
-    .shop {
-        width: 180px;
-        height: 45px;
-    }
+  .shop {
+    width: 180px;
+    height: 45px;
+  }
 }
 
 @media (max-width: 768px) {
-    .h1style {
-        font-size: 35px;
-        width: 60%;
-        top: 25%;
-    }
+  .h1style {
+    font-size: 35px;
+    width: 60%;
+    top: 25%;
+  }
 
-    .shop {
-        width: 160px;
-        height: 40px;
-        top: 50%;
-        left: 15%;
-    }
+  .shop {
+    width: 160px;
+    height: 40px;
+    top: 50%;
+    left: 15%;
+  }
 }
 
 @media (max-width: 480px) {
-    .h1style {
-        font-size: 30px;
-        width: 70%;
-        left: 5%;
+  .h1style {
+    font-size: 30px;
+    width: 70%;
+    left: 5%;
+  }
+
+  .shop {
+    width: 140px;
+    height: 35px;
+    top: 55%;
+    left: 10%;
+  }
+
+  .ImageContainer {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  h5 {
+    width: 100%;
+    height: auto;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(400px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
     }
 
-    .shop {
-        width: 140px;
-        height: 35px;
-        top: 55%;
-        left: 10%;
+    50% {
+        transform: scale(1.1);
     }
 
-    .ImageContainer {
-        flex-direction: column;
-        padding: 1rem;
-    }
-
-    h5 {
-        width: 100%;
-        height: auto;
+    100% {
+        transform: scale(1);
     }
 }
